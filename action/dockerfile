@@ -1,5 +1,4 @@
 FROM openjdk:8-jre-alpine
-COPY app.jar /app.jar
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 EXPOSE 8080
