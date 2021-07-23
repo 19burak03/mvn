@@ -11,5 +11,4 @@ ADD entrypoint2.sh /entrypoint2.sh
 RUN chmod +x /entrypoint.sh
 RUN chmod +x /entrypoint2.sh
 EXPOSE 8080
-ENTRYPOINT ["/entrypoint.sh"]
-ENTRYPOINT ["/entrypoint2.sh"]
+ENTRYPOINT ["/entrypoint.sh","/entrypoint2.sh"]
