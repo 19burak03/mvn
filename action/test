@@ -1,0 +1,9 @@
+FROM golang:1.15.2-alpine
+
+# Setup you server
+
+# This container exposes port 8080 to the outside world
+EXPOSE 8080
+
+# Run the executable
+CMD ["./main"]
