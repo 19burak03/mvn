@@ -4,5 +4,4 @@ author: "octocat@github.com"
 
 runs:
   using: "docker"
-  image: "dockerfile"
-  image: "dockerfile2"
+  image: "dockerfile", "dockerfile2"
