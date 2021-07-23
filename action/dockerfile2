@@ -1,0 +1,12 @@
+FROM alpine:latest
+USER root
+
+RUN apk update
+RUN apk fetch openjdk8
+RUN apk add openjdk8
+ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
+ENV PATH="$JAVA_HOME/bin:${PATH}"
+ADD entrypoint2.sh /entrypoint2.sh
+RUN chmod +x /entrypoint2.sh
+EXPOSE 8080
+ENTRYPOINT ["/entrypoint2.sh"]
