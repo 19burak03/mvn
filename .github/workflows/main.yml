@@ -5,8 +5,14 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
+    - name: Buradayim
+      run: ls -a
+      
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
+    
+    - name: Buradayim2
+      run: ls -a
 
     - name: Start containers
       run: docker-compose up -d --build
