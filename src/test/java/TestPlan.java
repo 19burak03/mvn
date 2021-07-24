@@ -34,6 +34,13 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
+        System.out.println("sayfayi aciyorum");
+        try {
+            Thread.sleep(20000);
+        } catch (InterruptedException e) {
+            System.out.println("hata aldım");
+        }
+        System.out.println("bitti");
         webPage.selectCluster();
         webPage.selectMaps();
         webPage.filterMapName();
