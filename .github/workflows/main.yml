@@ -6,12 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: buradayim main
-      run: pwd && ls -a
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Build containers
+      run: docker-compose -f ".github/workflows/docker-compose.yml" build
 
-    - uses: actions/checkout@v1
-    - uses: ./action
-    
+    - name: Checkout
+      uses: actions/checkout@v2
+      
+    - name: Start containers
+      run: docker-compose -f ".github/workflows/docker-compose.yml" up
+      
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
