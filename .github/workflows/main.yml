@@ -8,6 +8,8 @@ jobs:
       
     - name: Checkout
       uses: actions/checkout@v1
+    - name: pwd
+      run: pwd
     - name: Build containers
       run: docker-compose -f ".github/workflows/docker-compose.yml" build
    
