@@ -1,6 +1,5 @@
 name: Hazelcast
-on: push
-jobs:
+runs:
   docker:
     timeout-minutes: 10
     runs-on: ubuntu-latest
