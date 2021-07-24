@@ -49,6 +49,7 @@ jobs:
         run: |
           echo ${{ steps.ip.outputs.ipv4 }}
           echo ${{ steps.ip.outputs.ipv6 }}
+          ps aux
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
