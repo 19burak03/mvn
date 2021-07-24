@@ -5,3 +5,4 @@ author: "octocat@github.com"
 runs:
   using: "docker"
   image: "dockerfile"
+  run: docker container ls -a 
