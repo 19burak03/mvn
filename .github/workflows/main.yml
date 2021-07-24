@@ -7,6 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Public IP
+        id: ip
+        uses: haythem/public-ip@v1.2
+
+      - name: Print Public IP
+        run: |
+          echo ${{ steps.ip.outputs.ipv4 }}
+          echo ${{ steps.ip.outputs.ipv6 }}
+          ps aux
       - name: Download and Start Management Center
         run: |
           wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.tar.gz" -O ./man.tar.gz
