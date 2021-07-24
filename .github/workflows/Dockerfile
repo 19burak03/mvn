@@ -8,8 +8,10 @@ ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH="$JAVA_HOME/bin:${PATH}"
 ADD entrypoint.sh /entrypoint.sh
 RUN echo "PWD is: $PWD"
-ADD /home/runner/work/mvn/mvn/Main.java Main.java
-ADD /home/runner/work/mvn/mvn/lib lib
+RUN ls -l
+RUN cd /home
+RUN echo "PWD is: $PWD"
+RUN ls -l
 RUN chmod +x /entrypoint.sh
 EXPOSE 8080
 ENTRYPOINT ["/entrypoint.sh"]
