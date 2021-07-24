@@ -5,5 +5,3 @@ author: "octocat@github.com"
 runs:
   using: "docker"
   image: "dockerfile"
-  ports: 
-    - 8080:8080
