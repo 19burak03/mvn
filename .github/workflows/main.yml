@@ -7,14 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         run: docker-compose build
-      - name: Public IP
-        id: ip
-        uses: haythem/public-ip@v1.2
-
-      - name: Print Public IP
-        run: |
-          echo ${{ steps.ip.outputs.ipv4 }}
-          echo ${{ steps.ip.outputs.ipv6 }}
       - name: UP
         run: docker-compose up -d
       - uses: juliangruber/sleep-action@v1
@@ -31,7 +23,11 @@ jobs:
           java-version: 1.8
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
+      - name: Publish Test Report
+        if: ${{ always() }}
+        uses: scacap/action-surefire-report@v1
       - name: report
+        if: ${{ always() }}
         run: cd /home/runner/work/mvn/mvn/target/surefire-reports & ls -a
           
         
