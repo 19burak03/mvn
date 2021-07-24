@@ -16,4 +16,16 @@ jobs:
           echo ${{ steps.ip.outputs.ipv4 }}
           echo ${{ steps.ip.outputs.ipv6 }}
       - name: UP
-        run: docker-compose up
+        run: docker-compose up -d
+      - uses: juliangruber/sleep-action@v1
+        with:
+            time: 60s
+      - name: docker ls
+        run: docker container ls
+      - name: ps
+        run: ps aux
+      - name: inspect
+        run: docker container inspect $(docker container ls -aq)
+          
+        
+      
