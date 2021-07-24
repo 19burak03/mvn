@@ -7,9 +7,7 @@ RUN apk add openjdk8
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH="$JAVA_HOME/bin:${PATH}"
 ADD entrypoint.sh /entrypoint.sh
-RUN echo "PWD is: $PWD"
-RUN ls -l
-RUN cd /home
+RUN cd home
 RUN echo "PWD is: $PWD"
 RUN ls -l
 RUN chmod +x /entrypoint.sh
