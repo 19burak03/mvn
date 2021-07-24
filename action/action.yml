@@ -3,4 +3,4 @@ description: 'Publish a Storybook Site to GitHub Pages'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args: "-d -p 8080:8080"
+  arg: "-d -p 8080:8080"
