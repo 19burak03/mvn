@@ -8,6 +8,10 @@ inputs:
     description: 'The branch to publish your Storybook site to.'
     required: true
     default: 'gh-pages'
+  faruk:
+    description: 'The branch to publish your Storybook site to.'
+    required: true
+    default: 'gh-pages'
 runs:
   using: 'docker'
   image: 'Dockerfile'
