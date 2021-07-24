@@ -5,17 +5,15 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-    - name: Buradayim
-      run: ls -a
       
     - name: Checkout
       uses: actions/checkout@v2
-    
-    - name: Buradayim2
-      run: ls -a
 
+    - name: Build containers
+      run: docker-compose -f ".github/workflows/docker-compose.yml" build
+   
     - name: Start containers
-      run: docker-compose -f ".github/workflows/docker-compose.yml" up -d --build
+      run: docker-compose -f ".github/workflows/docker-compose.yml" up -d
       
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
