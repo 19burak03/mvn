@@ -34,6 +34,7 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
+        webPage.selectCluster();
         webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
