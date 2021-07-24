@@ -25,6 +25,10 @@ public class TestPlan {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--allow-running-insecure-content");
         driver = new ChromeDriver(options);
         webPage = new WebPage(driver);
         driver.manage().window().maximize();
