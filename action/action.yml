@@ -12,5 +12,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.access-token }}
-    - ${{ inputs.branch }}
+    - "delimeter=true"
