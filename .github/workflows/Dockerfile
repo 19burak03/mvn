@@ -6,6 +6,7 @@ RUN apk fetch openjdk8
 RUN apk add openjdk8
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk
 ENV PATH="$JAVA_HOME/bin:${PATH}"
+RUN echo "PWD is: $PWD"
 ADD entrypoint.sh /entrypoint.sh
 ADD Main.java Main.java
 ADD lib lib
