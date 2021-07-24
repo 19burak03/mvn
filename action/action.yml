@@ -4,5 +4,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args: 
-    - "-d"
-    - "-p 8080:8080"
+    - d
+    - p 8080:8080
