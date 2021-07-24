@@ -38,13 +38,6 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
-        System.out.println("sayfayi aciyorum");
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            System.out.println("hata aldım");
-        }
-        System.out.println("bitti");
         webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
@@ -53,20 +46,6 @@ public class TestPlan {
         webPage.checkColumn(webPage.names, "default");
     }
 
-    public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
-        TakesScreenshot scrShot =((TakesScreenshot)driver);
-        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile=new File(fileWithPath);
-        FileUtils.copyFile(SrcFile, DestFile);
-    }
-
-    @AfterMethod
-    public void tearDown(ITestResult result) throws Exception {
-        if(ITestResult.FAILURE==result.getStatus())
-        {
-            takeSnapShot(driver, "/Users/oguzpc/Downloads/coding-assignment-sdet/src/test/fail.png") ;
-        }
-    }
     @AfterSuite
     public static void cleanUp(){
         driver.manage().deleteAllCookies();
