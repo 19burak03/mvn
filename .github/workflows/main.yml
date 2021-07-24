@@ -13,7 +13,7 @@ jobs:
       run: docker-compose -f ".github/workflows/docker-compose.yml" build
    
     - name: Start containers
-      run: docker-compose -f ".github/workflows/docker-compose.yml" up -d
+      run: docker-compose -f ".github/workflows/docker-compose.yml" up
       
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
