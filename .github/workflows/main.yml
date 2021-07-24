@@ -20,5 +20,5 @@ jobs:
         with:
             time: 60s
       - name: Test with Maven
-        run:  docker container ls && curl http://localhost:8080 && mvn -B package --file pom.xml test
+        run:  docker container ls -a && curl http://localhost:8080 && mvn -B package --file pom.xml test
 
