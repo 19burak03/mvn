@@ -45,7 +45,6 @@ public class TestPlan {
             System.out.println("hata aldım");
         }
         System.out.println("bitti");
-        webPage.selectCluster();
         webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
