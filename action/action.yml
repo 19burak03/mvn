@@ -1,7 +1,16 @@
-name: "Hello Actions"
-description: "Greet someone"
-author: "octocat@github.com"
-
-runs:
-  using: "docker"
-  image: "dockerfile"
+name: Hazelcast
+on: push
+jobs:
+  docker:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: burda
+      run: pwd
+      
+    - name: Build containers
+      run: docker-compose -f ".github/workflows/docker-compose.yml" build
+      
+    - name: Start containers
+      run: docker-compose -f ".github/workflows/docker-compose.yml" up
