@@ -19,7 +19,7 @@ jobs:
         run: docker-compose up -d
       - uses: juliangruber/sleep-action@v1
         with:
-            time: 60s
+            time: 120s
       - name: docker ls
         run: docker container ls
       - name: curl
