@@ -22,7 +22,8 @@ jobs:
       - uses: actions/setup-java@v2
         with:
             distribution: 'adopt'
-            java-version: 1.8
+            java-version: "15"
+            check-latest: true
       - run: java -Xms2g -Xmx2g -cp ".:lib/*" Main
       - uses: juliangruber/sleep-action@v1
         with:
