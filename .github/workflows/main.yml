@@ -1,19 +1,9 @@
-name: hazelcast
+name: docker-compose-actions-workflow
 on: push
 jobs:
-  build:
-    name: Hello world action
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: ./action 
       - uses: actions/checkout@v2
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - uses: juliangruber/sleep-action@v1
-        with:
-            time: 60s
-      - name: Test with Maven
-        run:  docker container ls -a && ps aux && curl http://localhost:8080 && mvn -B package --file pom.xml test
+      - name: Build the stack
+        run: docker-compose up -d
