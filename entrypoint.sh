@@ -1,8 +1,5 @@
 #!/bin/sh -l
-echo "ilk ls"
-ls -a
-pwd
-javac -cp lib/* Main.java
+javac -cp "lib/*" Main.java
 wget "https://download.hazelcast.com/management-center/hazelcast-management-center-4.2021.04.tar.gz" -O ./man.tar.gz
 echo "ikinci ls"
 ls -la
