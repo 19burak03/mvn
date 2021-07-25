@@ -22,19 +22,16 @@ jobs:
       - uses: juliangruber/sleep-action@v1
         with:
             time: 30s
-
+      - name: screenshots-ci-action
+        uses: flameddd/screenshots-ci-action@v1.1.1
+        with:
+         url: https://localhost:8080
+         devices: iPhone 6
+      - uses: actions/upload-artifact@v2
+        with:
+         path: screenshots
+         name: Download-screenshots
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
-        with:
-         path: artifacts
-      - name: Publish Unit Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        with:
-          files: "target/surefire-reports/*.xml"
         
       
