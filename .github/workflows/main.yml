@@ -24,6 +24,11 @@ jobs:
             time: 30s
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
+      - uses: actions/checkout@v2
+      - name: install puppeteer-headful
+        uses: mujo-code/puppeteer-headful@master
+        env:
+         CI: 'true'
       - name: screenshots-ci-action
         if: ${{ always() }}
         uses: flameddd/screenshots-ci-action@v1.1.1
