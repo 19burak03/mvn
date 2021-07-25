@@ -28,9 +28,11 @@ jobs:
       - name: Publish Test Report
         if: ${{ always() }}
         uses: scacap/action-surefire-report@v1
-      - name: report
+      - name: Publish Test Report 2
         if: ${{ always() }}
-        run: cd /home/runner/work/mvn/mvn/target/surefire-reports & ls -a
+        uses: mikepenz/action-junit-report@v2
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
           
         
       
