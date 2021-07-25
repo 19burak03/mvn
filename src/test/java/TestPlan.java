@@ -46,9 +46,4 @@ public class TestPlan {
         webPage.checkColumn(webPage.names, "default");
     }
 
-    @AfterSuite
-    public static void cleanUp(){
-        driver.manage().deleteAllCookies();
-        driver.close();
-    }
 }
