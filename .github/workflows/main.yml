@@ -25,11 +25,13 @@ jobs:
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
       - name: screenshots-ci-action
+        if: ${{ always() }}
         uses: flameddd/screenshots-ci-action@v1.1.1
         with:
          url: https://localhost:8080
          devices: iPhone 6
       - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
         with:
          path: screenshots
          name: Download-screenshots
