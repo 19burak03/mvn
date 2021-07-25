@@ -28,11 +28,13 @@ jobs:
       - name: Publish Test Report
         if: ${{ always() }}
         uses: scacap/action-surefire-report@v1
-      - name: Publish Test Report 2
-        if: ${{ always() }}
-        uses: mikepenz/action-junit-report@v2
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
         with:
-          report_paths: '**/build/test-results/test/TEST-*.xml'
-          
+         path: artifacts
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: "target/surefire-reports/*.xml"
         
       
