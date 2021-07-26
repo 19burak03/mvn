@@ -45,7 +45,7 @@ public class TestPlan {
     public void tearDown(ITestResult result) throws Exception {
         if(ITestResult.FAILURE==result.getStatus())
         {
-            takeSnapShot(driver, "/fail.png") ;
+            takeSnapShot(driver, "./fail.png") ;
         }
     }
     @Test(testName = "Storage Map Filter Validations")
