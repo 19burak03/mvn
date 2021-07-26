@@ -22,12 +22,19 @@ jobs:
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
       - name: ls
+        if: ${{ always() }}
         run: ls -l
       - name: Upload artifact
         if: ${{ always() }}
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: surefire-reports
           path: /target/surefire-reports/**
+      - name: Upload artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: shot
+          path: /fail.png
 
       
