@@ -29,12 +29,12 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: surefire-reports
-          path: /target/surefire-reports/**
+          path: ~/target/surefire-reports/**
       - name: Upload artifact
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: shot
-          path: /fail.png
+          path: ~/fail.png
 
       
