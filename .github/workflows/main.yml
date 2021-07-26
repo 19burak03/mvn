@@ -5,9 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build
+      - name: Docker Build
         run: docker-compose build
-      - name: UP
+        
+      - name: Docker Up
         run: docker-compose up -d
       - uses: juliangruber/sleep-action@v1
         with:
@@ -18,21 +19,14 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+          
       - uses: actions/checkout@v2
       - name: Test with Maven
         run: mvn -B package --file pom.xml test
-      - name: ls
+         
+      - name: Upload Artifact
         if: ${{ always() }}
-        run: ls ~/target/surefire-reports/**
-      - name: Upload artifactf
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: surefire-reports
-          path: /target/surefire-reports/**
-      - name: Upload artifact
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
           name: shot
-          path: ~/screen/fail.png
+          path: /home/runner/work/mvn/mvn/screen/fail.png

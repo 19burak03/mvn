@@ -19,8 +19,7 @@ public class TestPlan {
     static WebPage webPage;
 
     @BeforeClass
-    public static void setUp()
-    {
+    public static void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -38,7 +37,11 @@ public class TestPlan {
     public static void openClusterPage(){
 
         driver.get(Utils.BASE_URL);
-//        webPage.selectMaps();
+        webPage.enableDevMode();
+        webPage.clusterConfig();
+        webPage.saveConfig();
+        webPage.selectCluster();
+        webPage.selectMaps();
         webPage.filterMapName();
         webPage.wrongFilter("test");
         webPage.trueFilter("default");

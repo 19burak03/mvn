@@ -12,12 +12,15 @@ public class WebPage extends PageObjects{
 
     @FindBy(xpath = "//div[contains(text(),'dev')]")
     private WebElement cluster_header;
+    
+    @FindBy(xpath = "//button[contains(text(),'Add Cluster Config')]")
+    private WebElement cluster_config;
+    
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement save_config;
 
     @FindBy(xpath = "//a[@data-test='menu-maps']/span[contains(text(),'Maps')]")
     private WebElement storage_maps;
-
-    @FindBy(css = "#mc > div > div.__App-module___sidebar > div > nav > ul:nth-child(9) > li:nth-child(1) > a")
-    private WebElement bjk;
 
     @FindBy(css = "div.rt-tbody div.rt-tr-group div.rt-td.core-components-HzTable-__HzTable-module___left.core-components-HzTable-__HzTable-module___box")
     WebElement names;
@@ -27,6 +30,9 @@ public class WebPage extends PageObjects{
 
     @FindBy(xpath = "//span[contains(text(),'No data available in table')]")
     private WebElement no_data_filter;
+    
+    @FindBy(xpath = "//span[contains(text(),'ENABLE')]")
+    private WebElement enable_dev_mode;
 
     @FindBy(xpath = "//input[@type='text']")
     private WebElement name_filter;
@@ -36,10 +42,21 @@ public class WebPage extends PageObjects{
     }
 
     public void selectCluster(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.active_cluster.isDisplayed();
         this.active_cluster.click();
     }
 
+    public void clusterConfig(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        this.cluster_config.click();
+    }
+    
+    public void saveConfig(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        this.save_config.click();    
+    }
+    
     public void validateClusterHeader(){
         this.cluster_header.isDisplayed();
     }
@@ -51,8 +68,15 @@ public class WebPage extends PageObjects{
         this.storage_maps.isDisplayed();
         this.storage_maps.click();
     }
-
+    
+    public void enableDevMode() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        this.enable_dev_mode.click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+    
     public void filterMapName(){
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         this.name_filter.isDisplayed();
     }
 
