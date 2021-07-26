@@ -33,7 +33,21 @@ public class TestPlan {
         webPage = new WebPage(driver);
         driver.manage().window().maximize();
     }
+    
+    public static void takeSnapShot(WebDriver driver,String fileWithPath) throws Exception{
+        TakesScreenshot scrShot =((TakesScreenshot)driver);
+        File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+        File DestFile=new File(fileWithPath);
+        FileUtils.copyFile(SrcFile, DestFile);
+    }
 
+    @AfterMethod
+    public void tearDown(ITestResult result) throws Exception {
+        if(ITestResult.FAILURE==result.getStatus())
+        {
+            takeSnapShot(driver, "/fail.png") ;
+        }
+    }
     @Test(testName = "Storage Map Filter Validations")
     public static void openClusterPage(){
 
