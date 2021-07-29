@@ -1,7 +1,10 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import java.time.Duration;
 
@@ -42,41 +45,35 @@ public class WebPage extends PageObjects{
     }
 
     public void selectCluster(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        this.active_cluster.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(this.active_cluster));
         this.active_cluster.click();
     }
 
     public void clusterConfig(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(this.cluster_config));
         this.cluster_config.click();
     }
     
     public void saveConfig(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(this.save_config));
         this.save_config.click();    
-    }
-    
-    public void validateClusterHeader(){
-        this.cluster_header.isDisplayed();
     }
 
     public void selectMaps(){
         Actions action = new Actions(driver);
         action.moveToElement(storage_maps).perform();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        this.storage_maps.isDisplayed();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(this.storage_maps));
         this.storage_maps.click();
     }
     
     public void enableDevMode() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(this.enable_dev_mode));
         this.enable_dev_mode.click();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
     
     public void filterMapName(){
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(this.enable_dev_mode));
         this.name_filter.isDisplayed();
     }
 
