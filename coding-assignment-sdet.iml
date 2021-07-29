@@ -12,8 +12,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/test-output" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/classes" />
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/test-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -167,5 +169,6 @@
     <orderEntry type="library" name="Maven: top.jfunc.json:json-fastjson:1.8.0" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.1.43" level="project" />
     <orderEntry type="library" name="Maven: top.jfunc.json:json-common:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
   </component>
 </module>
